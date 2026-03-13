@@ -581,8 +581,8 @@ export default function LandingPage() {
           <div className="mx-auto w-full max-w-7xl px-6 lg:px-8">
             <div className="grid gap-4 md:grid-cols-3">
               <StatusCard title="Resume Builder" status="Live" desc="Production-ready workflow available now at /builder." />
-              <StatusCard title="CV Builder" status="Planned Expansion" desc="Part of the next platform phase for broader career-document support." />
-              <StatusCard title="Cover Letters" status="Planned Expansion" desc="Designed to align with the same structured writing experience." />
+              <StatusCard title="CV Builder" status="Live" desc="Full academic and professional CV workflows are available now." />
+              <StatusCard title="Cover Letters" status="Live" desc="Build structured, role-aligned cover letters with live preview." />
             </div>
           </div>
         </SectionReveal>
@@ -712,8 +712,8 @@ export default function LandingPage() {
 
             <div className="grid gap-5 md:grid-cols-2">
               <OfferCard title="Resume Builder (Live)" desc="Today, you can build and refine a high-quality resume with guided prompts and live preview." />
-              <OfferCard title="CV Builder (Planned Expansion)" desc="Next, we are extending the same quality system to full CV workflows." />
-              <OfferCard title="Cover Letter Builder (Planned Expansion)" desc="We are also expanding into structured, role-aligned cover letter creation." />
+              <OfferCard title="CV Builder" desc="The same guided workflow now supports full academic and professional CVs." />
+              <OfferCard title="Cover Letter Builder" desc="Create structured, role-aligned cover letters with the same polish." />
               <OfferCard title="One Coherent Workflow" desc="The goal is a unified experience for all core career documents, not disconnected tools." />
             </div>
           </div>
