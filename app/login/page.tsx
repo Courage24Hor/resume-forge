@@ -14,6 +14,7 @@ export default function LoginPage() {
   const [mode, setMode] = useState<"signin" | "signup">("signin");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -36,7 +37,7 @@ export default function LoginPage() {
       const normalizedEmail = email.trim().toLowerCase();
       const domain = normalizedEmail.split("@")[1] ?? "";
       if (!normalizedEmail || normalizedEmail.length > 254 || !emailPattern.test(normalizedEmail)) {
-        setMessage("Please enter a valid email address.");
+        setMessage("Please enter a valid email address (example: name@domain.com).");
         return;
       }
       if (disposableDomains.has(domain)) {
@@ -77,6 +78,13 @@ export default function LoginPage() {
     <div className="min-h-screen bg-[#0a0f1c] text-[#e8edf8]">
       <header className="border-b border-white/10 bg-[#0a0f1c]/85 backdrop-blur-xl">
         <div className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-6 lg:px-8">
+          <button
+            type="button"
+            onClick={() => router.back()}
+            className="text-sm font-semibold text-white/70 hover:text-white"
+          >
+            Back
+          </button>
           <Link href="/" className="text-lg font-semibold tracking-tight">
             <span className="text-white">Elevate</span>
             <span className="text-[#fb923c]">CV</span>
@@ -111,13 +119,22 @@ export default function LoginPage() {
             </div>
             <div className="space-y-2">
               <Label className="text-white/80">Password</Label>
-              <Input
-                type="password"
-                className="border-white/15 bg-[#0f172a] text-white placeholder:text-white/40 focus-visible:ring-[#f97316]"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                placeholder="Minimum 6 characters"
-              />
+              <div className="relative">
+                <Input
+                  type={showPassword ? "text" : "password"}
+                  className="border-white/15 bg-[#0f172a] pr-20 text-white placeholder:text-white/40 focus-visible:ring-[#f97316]"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder="Minimum 6 characters"
+                />
+                <button
+                  type="button"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-semibold text-white/60 hover:text-white"
+                  onClick={() => setShowPassword((prev) => !prev)}
+                >
+                  {showPassword ? "Hide" : "Show"}
+                </button>
+              </div>
             </div>
           </div>
 
